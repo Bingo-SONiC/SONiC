@@ -157,8 +157,8 @@ we might need a dedicated FW utility.
 **This feature will support the following commands:**
 1. show: Display FW versions/updates
 2. install: Manual FW installation
-3. update: Complete FW installation
-4. update all: Automatic updates of all available FWs for any specific boot type
+3. update: Complete FW installation   
+4. update all: Automatic updates of all available FWs for any specific boot type 
 
 ### 1.2.3 Error handling
 
