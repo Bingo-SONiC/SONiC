@@ -122,18 +122,20 @@ we might need a dedicated FW utility.
    for any specific boot type. Automatic FW updates expects to be followed by the reboot
    that was specified by the fwutil automatic fw update command, unless the boot type was none.
    
-   Bingo - platform_components.json list components
-          - boot type 不为none， Automatic FW update cmd 指定升级 follow 预定的reboot
-          - 如果boot type 是none，不指定（tbd）
+   Bingo 
+   - platform_components.json list components
+   - boot type 不为none， Automatic FW update cmd 指定升级 follow 预定的reboot
+   - 如果boot type 是none，不指定（tbd）
           
 6. Automatic FW updates can have two phases for the components which firmware update needs
    the complete action to be performed and the first phase is done by platform api and the
    second phase can be done by the fwupdate reboot plugin. The heavy time consuming firmware
    update is expected to be done during the first phase.
 
-   Bingo - 完成完整的升级可以用下面两个步骤：
-          - phases 1. platform api -- 完成升级的步骤
-          - phases 2. fwupdate reboot plugin  -- 完成刷新操作
+   Bingo 
+   - 完成完整的升级可以用下面两个步骤：
+   - phases 1. platform api -- 完成升级的步骤
+   - phases 2. fwupdate reboot plugin  -- 完成刷新操作
    
 7. Automatic FW updates can have another two phases for any firmware update which needs
    any system intervention like process stop or disk unmount, the firmware update task should
@@ -146,11 +148,11 @@ we might need a dedicated FW utility.
    "status_err_boot_type" if the reboot timing doesn't meet for any reboot requirement.
    
    Bingo - 另外方法两个步骤： ---该升级用于firmware 升级的时候需要系统干预，
-          - phases 1. platform api 需要预定升级task.
-          - phases 2. the fwupdate reboot plugin 执行实际的升级操作. 
+   - phases 1. platform api 需要预定升级task.
+   - phases 2. the fwupdate reboot plugin 执行实际的升级操作. 
             (此过程在实际的网络环境中有时间限制,长时间的reboot 时间 会中断一些服务)
-          -  基于reboot type， 设备厂商需要衡量reboot时间（包含升级和诊断升级是否可用）来做自动升级
-          -  auto_update_firmware() platform api 返回 status_err_boot_type： 重启type时间是否满足重启需求
+   -  基于reboot type， 设备厂商需要衡量reboot时间（包含升级和诊断升级是否可用）来做自动升级
+   -  auto_update_firmware() platform api 返回 status_err_boot_type： 重启type时间是否满足重启需求
           
 ### 1.2.2 Command interface
 
